@@ -3,17 +3,12 @@ import Link from 'next/link';
 
 const Header: React.FC = () => {
     return (
-        <header className="bg-gray-800 p-4 text-white">
-            <nav className="flex space-x-4">
-                <Link href="/">
-                    <span className="hover:underline cursor-pointer">Home (Root)</span>
-                </Link>
-                <Link href="/home">
-                    <span className="hover:underline cursor-pointer">Home</span>
-                </Link>
-                <Link href="/about">
-                    <span className="hover:underline cursor-pointer">About</span>
-                </Link>
+        <header className="flex flex-row justify-around bg-gray-800 p-4 text-white">
+            <h1 className="text-xl font-bold">My Next.js App</h1>
+            <nav className="space-x-4">
+                <Link href="/home" className="text-blue-600 hover:underline">Home</Link>
+                <Link href="/about" className="text-blue-600 hover:underline">About</Link>
+                <Link href="/posts" className="text-blue-600 hover:underline">Posts</Link>
             </nav>
         </header>
     );

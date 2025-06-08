@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Button from '@/components/common/Button';
+import Header from '@/components/layout/Header';
 
 const AboutPage: React.FC = () => {
     return (
@@ -8,6 +9,7 @@ const AboutPage: React.FC = () => {
             <Head>
                 <title>About | My Next.js App</title>
             </Head>
+            <Header />
             <main className="flex flex-col gap-3 min-h-screen items-center justify-start m-3 bg-white">
                 <h1 className="text-4xl font-bold text-green-600">About This App</h1>
 
