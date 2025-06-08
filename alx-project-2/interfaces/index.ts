@@ -8,6 +8,13 @@ export interface Post {
     content: string;
 }
 
+export interface PostProps {
+    title: string;
+    content: string;
+    userId: number;
+}
+
+
 export interface PostModalProps {
     isOpen: boolean;
     onClose: () => void;
