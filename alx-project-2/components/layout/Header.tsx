@@ -9,6 +9,7 @@ const Header: React.FC = () => {
                 <Link href="/home" className="text-blue-600 hover:underline">Home</Link>
                 <Link href="/about" className="text-blue-600 hover:underline">About</Link>
                 <Link href="/posts" className="text-blue-600 hover:underline">Posts</Link>
+                <Link href="/users" className='text-blue-600 hover:underline'>Users</Link>
             </nav>
         </header>
     );
