@@ -9,6 +9,7 @@ export interface Post {
 }
 
 export interface PostProps {
+    id: number;
     title: string;
     content: string;
     userId: number;
