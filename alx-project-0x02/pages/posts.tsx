@@ -23,6 +23,7 @@ const PostsPage: NextPage<PostsPageProps> = ({ posts }) => {
     );
 };
 
+
 export const getStaticProps: GetStaticProps = async () => {
     try {
         const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=10');

@@ -23,6 +23,7 @@ const UsersPage: NextPage<UsersPageProps> = ({ users }) => {
     );
 };
 
+// getStaticProps() for fetching data from API
 export const getStaticProps: GetStaticProps = async () => {
     try {
         const res = await fetch('https://jsonplaceholder.typicode.com/users');
