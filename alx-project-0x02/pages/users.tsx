@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
-import Header from '../components/layout/Header';
-import UserCard from '../components/common/UserCard';
-import { UserProps } from '../interfaces';
+import Header from '@/components/layout/Header';
+import UserCard from '@/components/common/UserCard';
+import { UserProps } from '@/interfaces';
 
 interface UsersPageProps {
     users: UserProps[];
