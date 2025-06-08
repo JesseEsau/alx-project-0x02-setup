@@ -35,7 +35,6 @@ export interface UserProps {
     email: string;
     address: {
         street: string;
-        suite: string;
         city: string;
         zipcode: string;
     };

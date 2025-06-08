@@ -1,34 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import Head from 'next/head';
+import { GetStaticProps, NextPage } from 'next';
 import Header from '../components/layout/Header';
 import UserCard from '../components/common/UserCard';
 import { UserProps } from '../interfaces';
 
-const UsersPage: React.FC = () => {
-    const [users, setUsers] = useState<UserProps[]>([]);
+interface UsersPageProps {
+    users: UserProps[];
+}
 
-    useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const res = await fetch('https://jsonplaceholder.typicode.com/users');
-                const data = await res.json();
-                setUsers(data);
-            } catch (error) {
-                console.error('Failed to fetch users:', error);
-            }
-        };
-
-        fetchUsers();
-    }, []);
-
+const UsersPage: NextPage<UsersPageProps> = ({ users }) => {
     return (
         <>
-            <Head>
-                <title>Users | My Next.js App</title>
-            </Head>
             <Header />
-            <main className="min-h-screen bg-gray-100 p-8">
-                <h1 className="text-3xl font-bold mb-6">User List</h1>
+            <main className="p-8 bg-gray-100 min-h-screen">
+                <h1 className="text-3xl font-bold mb-6">Users</h1>
                 <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     {users.map((user) => (
                         <UserCard key={user.id} user={user} />
@@ -37,6 +21,23 @@ const UsersPage: React.FC = () => {
             </main>
         </>
     );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+    try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
+        const users: UserProps[] = await res.json();
+
+        return {
+            props: { users },
+            revalidate: 60, // Revalidate once per minute
+        };
+    } catch (error) {
+        console.error('Failed to fetch users:', error);
+        return {
+            props: { users: [] },
+        };
+    }
 };
 
 export default UsersPage;
